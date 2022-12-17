@@ -1,0 +1,216 @@
+@import url(https://fonts.googleapis.com/css?family=Google+Sans:100,300,400,500,700,900,100i,300i,400i,500i,700i,900i);
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    user-select: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+body {
+    margin: 0;
+    background-color: #1b1b1d;
+    color: #ffffff;
+}
+body, p, button {
+    font-family: 'Google Sans';
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+}
+p, td {
+    font-size: 13px;
+    margin: 7px 0px;
+    line-height: 20px;
+}
+button {
+    background-color: #a5caff;
+    border: none;
+    padding: 10px 13px;
+    border-radius: 1000px;
+    cursor: pointer;
+    height: fit-content;
+}
+button.secondary {
+    background-color: #423e4f00;
+    border: none;
+    padding: 10px 13px;
+    border-radius: 1000px;
+    color: #cdbdf5;
+    transition: all .3s;
+}
+button.secondary:active {
+    background-color: #423e4f;
+    transition: none;
+}
+
+#content {
+    margin: 50px 20px 75px;
+    display: grid;
+}
+#content>div {
+    grid-row: 1;
+    grid-column: 1;
+}
+#pane1, #pane2, #pane3 {
+    transition: opacity .3s, transform .3s;
+}
+div.panehidden {
+    opacity: 0;
+    transform: scaleX(0.9) translateY(5vh);
+    pointer-events: none;
+    height: 0px;
+    overflow: hidden;
+}
+
+.section {
+    background-color: #282d33;
+    padding: 15px;
+    border-radius: 15px;
+}
+.section.row {
+    display: flex; 
+    justify-content: space-between;
+}
+.collapser {
+    background-color: #eee0;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 7px 5px 7px 0px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+    margin: 0px;
+    border-radius: 100000px;
+}
+.collapser:after {
+    content: '\203A';
+    font-size: 15px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+    transition: all .2s ease-out;
+    transform: rotate(-90deg);
+}
+.collapser.active:after {
+    transform: rotate(90deg);
+}
+.collapsible {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.screenlink {
+    background-color: #eee0;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 15px 5px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+    margin: 0px;
+    border-radius: 100000px;
+}
+.screenlink:after {
+    content: '\203A';
+    font-size: 15px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+.screen {
+    background-color: #0003;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+.screen .modal {
+    background-color: #2f2c37;
+    border-radius: 20px;
+    z-index: 110;
+    width: -webkit-fill-available;
+    max-height: 70vh;
+    margin: 15px;
+    border: #2f2c37 4vw solid;
+    display: flex;
+    flex-direction: column;
+}
+.screen .modal .modalcontent {
+    overflow-y: scroll;
+    max-height: inherit;
+}
+div.closecontainer {
+    background-color: #2f2c37;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#nav {
+    height: 60px;
+    background-color: #24272e;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+    color: #d7e4f7;
+}
+#nav button {
+    background-color: #fff0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 0px;
+}
+#nav button:active {
+    background-color: #ffffff22;
+}
+#nav button:not(:active) {
+    transition: all .3s;
+}
+#nav button svg {
+    display: block;
+}
+#nav button svg.active {
+    display: none;
+}
+#nav button.current svg {
+    display: none;
+}
+#nav button.current svg.active {
+    display: block;
+}
+#nav div.iconbg {
+    border-radius: 100000px;
+    width: fit-content;
+    padding: 2px 10px;
+}
+#nav button.current div.iconbg {
+    background-color: #3b4858;
+}
+#nav p {
+    margin: 0;
+    color: #b4b8c1;
+    font-size: smaller;
+}
